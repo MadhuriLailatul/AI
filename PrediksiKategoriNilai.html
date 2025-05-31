@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kategori Nilai Siswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .predict-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .predict-btn:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .result.tinggi {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .result.sedang {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .result.rendah {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .decision-path {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .decision-path h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .tree-visual {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .tree-visual h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .tree-node {
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Prediksi Kategori Nilai Siswa</h1>
+        <p class="subtitle">Menggunakan Decision Tree Algorithm</p>
+
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="nilaiUTS">Nilai UTS (0-100):</label>
+                <input type="number" id="nilaiUTS" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nilaiUAS">Nilai UAS (0-100):</label>
+                <input type="number" id="nilaiUAS" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nilaiTugas">Nilai Tugas (0-100):</label>
+                <input type="number" id="nilaiTugas" min="0" max="100" required>
+            </div>
+
+            <button type="submit" class="predict-btn">Prediksi Kategori Nilai</button>
+        </form>
+
+        <div id="result" class="result"></div>
+
+        <div class="tree-visual">
+            <h3>📈 Decision Tree Structure</h3>
+            <div class="tree-node">
+Root: Rata-rata Nilai<br>
+├── ≥ 85: TINGGI<br>
+├── 70-84:<br>
+│   ├── UTS ≥ 75: TINGGI<br>
+│   └── UTS < 75:<br>
+│       ├── Tugas ≥ 80: SEDANG<br>
+│       └── Tugas < 80: SEDANG<br>
+├── 60-69:<br>
+│   ├── UAS ≥ 70: SEDANG<br>
+│   └── UAS < 70: RENDAH<br>
+└── < 60: RENDAH
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Decision Tree Implementation
+        function decisionTree(uts, uas, tugas) {
+            // Hitung rata-rata nilai
+            const rataRata = (uts + uas + tugas) / 3;
+            
+            let kategori = "";
+            let jalurKeputusan = [];
+
+            // Root node - cek rata-rata
+            jalurKeputusan.push(`Rata-rata nilai: ${rataRata.toFixed(1)}`);
+
+            if (rataRata >= 85) {
+                kategori = "TINGGI";
+                jalurKeputusan.push("Rata-rata ≥ 85 → Kategori TINGGI");
+            }
+            else if (rataRata >= 70) {
+                jalurKeputusan.push("Rata-rata 70-84 → Cek nilai UTS");
+                
+                if (uts >= 75) {
+                    kategori = "TINGGI";
+                    jalurKeputusan.push(`UTS = ${uts} ≥ 75 → Kategori TINGGI`);
+                } else {
+                    jalurKeputusan.push(`UTS = ${uts} < 75 → Cek nilai Tugas`);
+                    
+                    if (tugas >= 80) {
+                        kategori = "SEDANG";
+                        jalurKeputusan.push(`Tugas = ${tugas} ≥ 80 → Kategori SEDANG`);
+                    } else {
+                        kategori = "SEDANG";
+                        jalurKeputusan.push(`Tugas = ${tugas} < 80 → Kategori SEDANG`);
+                    }
+                }
+            }
+            else if (rataRata >= 60) {
+                jalurKeputusan.push("Rata-rata 60-69 → Cek nilai UAS");
+                
+                if (uas >= 70) {
+                    kategori = "SEDANG";
+                    jalurKeputusan.push(`UAS = ${uas} ≥ 70 → Kategori SEDANG`);
+                } else {
+                    kategori = "RENDAH";
+                    jalurKeputusan.push(`UAS = ${uas} < 70 → Kategori RENDAH`);
+                }
+            }
+            else {
+                kategori = "RENDAH";
+                jalurKeputusan.push("Rata-rata < 60 → Kategori RENDAH");
+            }
+
+            return {
+                kategori: kategori,
+                rataRata: rataRata,
+                jalurKeputusan: jalurKeputusan
+            };
+        }
+
+        // Event listener untuk form
+        document.getElementById('predictionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const uts = parseInt(document.getElementById('nilaiUTS').value);
+            const uas = parseInt(document.getElementById('nilaiUAS').value);
+            const tugas = parseInt(document.getElementById('nilaiTugas').value);
+
+            const hasil = decisionTree(uts, uas, tugas);
+            tampilkanHasil(hasil);
+        });
+
+        function tampilkanHasil(hasil) {
+            const resultDiv = document.getElementById('result');
+            
+            let icon = "";
+            let pesan = "";
+            
+            switch(hasil.kategori) {
+                case "TINGGI":
+                    icon = "🏆";
+                    pesan = "Selamat! Prestasi sangat baik!";
+                    break;
+                case "SEDANG":
+                    icon = "👍";
+                    pesan = "Baik! Pertahankan dan tingkatkan lagi!";
+                    break;
+                case "RENDAH":
+                    icon = "💪";
+                    pesan = "Semangat! Masih bisa diperbaiki!";
+                    break;
+            }
+
+            resultDiv.innerHTML = `
+                <div>${icon} Kategori Nilai: ${hasil.kategori}</div>
+                <div style="font-size: 14px; margin-top: 10px;">
+                    Rata-rata: ${hasil.rataRata.toFixed(1)} | ${pesan}
+                </div>
+                <div class="decision-path">
+                    <h4>🌳 Jalur Keputusan Decision Tree:</h4>
+                    ${hasil.jalurKeputusan.map(step => `• ${step}`).join('<br>')}
+                </div>
+            `;
+            
+            resultDiv.className = `result ${hasil.kategori.toLowerCase()}`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
