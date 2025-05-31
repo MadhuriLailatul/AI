@@ -35,12 +35,6 @@ Masukkan nilai:
 - Tugas: 80  
 Klik tombol **Prediksi**, hasil yang muncul: **Tinggi**
 
-## 👨‍💻 Cara Menjalankan
-1. Clone repository ini
-2. Buka folder di VS Code
-3. Jalankan `index.html` dengan browser
-
-
 ## 👩‍💼 Identitas 
 
 - **Nama**: Madhuri Lailatul Hamidah  
