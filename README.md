@@ -11,16 +11,16 @@ Sistem ini bertujuan membantu guru atau siswa dalam mengetahui prediksi kategori
 
 Metode yang digunakan adalah **Decision Tree**, yaitu teknik klasifikasi yang populer dan mudah diimplementasikan.
 
-## Memasukkan
+## Masukan
 - Nilai UTS (Ujian Tengah Semester)
 - Nilai UAS (Ujian Akhir Semester)
 - Nilai Tugas
 
 ## Keluaran
 - Kategori Nilai:
-  - **Tinggi** (nilai ≥ 80)
-  - **Sedang** (60 ≤ nilai < 80)
-  - **Rendah** (nilai < 60)
+  **Tinggi** (nilai ≥ 80)
+  **Sedang** (60 ≤ nilai < 80)
+  **Rendah** (nilai < 60)
 
 ## Contoh Penggunaan
 Masukkan nilai:
@@ -34,5 +34,6 @@ Klik tombol **Prediksi**, hasil yang muncul: **Tinggi**
 **Nama**: Madhuri Lailatul Hamidah  
 **NIM**: 23050974057  
 **Kelas**: PTIB23
+
 **Mata Kuliah**: Kecerdasan Buatan  
 
