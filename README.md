@@ -1,39 +1,21 @@
-# Sistem Prediksi Kategori Nilai Siswa
+# 🎓 Sistem Prediksi Kategori Nilai Siswa
 
-Sistem sederhana berbasis web yang memprediksi kategori nilai akhir siswa berdasarkan nilai UTS, UAS, dan Tugas menggunakan metode *Decision Tree*.
+Sistem ini merupakan sistem sederhana yang dikembangkan sebagai bagian dari tugas UAS mata kuliah *Kecerdasan Buatan* di Program Studi Pendidikan Teknologi Informasi, Universitas Negeri Surabaya. Tujuan utama dari sistem ini adalah untuk membantu guru atau siswa dalam memprediksi kategori nilai akhir berdasarkan nilai UTS, UAS, dan Tugas menggunakan metode *Decision Tree*.
 
-## Deskripsi Proyek UAS Kecerdasan Buatan
+Sistem ini mengambil pendekatan klasifikasi sederhana untuk mengelompokkan hasil akhir siswa ke dalam tiga kategori, yaitu **Tinggi**, **Sedang**, dan **Rendah**. Kategori tersebut ditentukan berdasarkan rata-rata dari tiga komponen nilai. Jika rata-rata nilai ≥ 80 maka dikategorikan sebagai **Tinggi**, jika berada di antara 60 dan 79 maka masuk kategori **Sedang**, dan jika kurang dari 60 maka masuk kategori **Rendah**.
 
-Sistem ini bertujuan membantu guru atau siswa dalam mengetahui prediksi kategori nilai akhir:
-- **Tinggi**
-- **Sedang**
-- **Rendah**
+Pengguna hanya perlu memasukkan nilai UTS, UAS, dan Tugas ke dalam form yang disediakan. Setelah menekan tombol prediksi, sistem akan langsung menampilkan hasil kategori sesuai perhitungan. Sebagai contoh, jika dimasukkan nilai UTS 75, UAS 85, dan Tugas 80, maka sistem akan memberikan hasil prediksi kategori **Tinggi**.
 
-Metode yang digunakan adalah **Decision Tree**, yaitu teknik klasifikasi yang populer dan mudah diimplementasikan.
+Proyek ini dibangun dengan HTML sebagai antarmuka pengguna, CSS untuk styling dasar, yang digunakan untuk mengimplementasikan logika *Decision Tree*.
 
-## Masukan
-- Nilai UTS (Ujian Tengah Semester)
-- Nilai UAS (Ujian Akhir Semester)
-- Nilai Tugas
+---
 
-## Keluaran
-- Kategori Nilai:
-  **Tinggi** (nilai ≥ 80)
-  **Sedang** (60 ≤ nilai < 80)
-  **Rendah** (nilai < 60)
+### 👩‍💻 Identitas 
 
-## Contoh Penggunaan
-Masukkan nilai:
-- UTS: 75
-- UAS: 85
-- Tugas: 80  
-Klik tombol **Prediksi**, hasil yang muncul: **Tinggi**
-
-## Identitas 
-
-**Nama**: Madhuri Lailatul Hamidah  
-**NIM**: 23050974057  
-**Kelas**: PTIB23
-
-**Mata Kuliah**: Kecerdasan Buatan  
-
+Nama          : **Madhuri Lailatul Hamidah**  
+NIM           : **23050974057**  
+Kelas         : **PTIB23**  
+Mata Kuliah   : **Kecerdasan Buatan**  
+Program Studi : **Pendidikan Teknologi Informasi**  
+Universitas   : **Universitas Negeri Surabaya**  
+URL Prodi     : [https://pendidikan-ti.ft.unesa.ac.id/](https://pendidikan-ti.ft.unesa.ac.id/)
