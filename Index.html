@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kategori Nilai Siswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Prediksi Kategori Nilai Siswa</h1>
+        <p class="subtitle">Menggunakan Decision Tree Algorithm</p>
+
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="nilaiUTS">Nilai UTS (0-100):</label>
+                <input type="number" id="nilaiUTS" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nilaiUAS">Nilai UAS (0-100):</label>
+                <input type="number" id="nilaiUAS" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nilaiTugas">Nilai Tugas (0-100):</label>
+                <input type="number" id="nilaiTugas" min="0" max="100" required>
+            </div>
+
+            <button type="submit" class="predict-btn">Prediksi Kategori Nilai</button>
+        </form>
+
+        <div id="result" class="result"></div>
+
+        <div class="tree-visual">
+            <h3>📈 Decision Tree Structure</h3>
+            <div class="tree-node">
+Root: Rata-rata Nilai<br>
+├── ≥ 85: TINGGI<br>
+├── 70-84:<br>
+│   ├── UTS ≥ 75: TINGGI<br>
+│   └── UTS < 75:<br>
+│       ├── Tugas ≥ 80: SEDANG<br>
+│       └── Tugas < 80: SEDANG<br>
+├── 60-69:<br>
+│   ├── UAS ≥ 70: SEDANG<br>
+│   └── UAS < 70: RENDAH<br>
+└── < 60: RENDAH
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
