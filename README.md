@@ -1,5 +1,7 @@
 # 🎓 Sistem Prediksi Kategori Nilai Siswa
 
+![Alt](https://github.com/MadhuriLailatul/AI/blob/e4dd097a23f102b173758b6bc5d645af0b233f46/Picture.png)
+
 Sistem ini merupakan sistem sederhana yang dikembangkan sebagai bagian dari tugas UAS mata kuliah *Kecerdasan Buatan* di Program Studi Pendidikan Teknologi Informasi, Universitas Negeri Surabaya. Tujuan utama dari sistem ini adalah untuk membantu guru atau siswa dalam memprediksi kategori nilai akhir berdasarkan nilai UTS, UAS, dan Tugas menggunakan metode *Decision Tree*.
 
 Sistem ini mengambil pendekatan klasifikasi sederhana untuk mengelompokkan hasil akhir siswa ke dalam tiga kategori, yaitu **Tinggi**, **Sedang**, dan **Rendah**. Kategori tersebut ditentukan berdasarkan rata-rata dari tiga komponen nilai. Jika rata-rata nilai ≥ 80 maka dikategorikan sebagai **Tinggi**, jika berada di antara 60 dan 79 maka masuk kategori **Sedang**, dan jika kurang dari 60 maka masuk kategori **Rendah**.
@@ -9,7 +11,6 @@ Pengguna hanya perlu memasukkan nilai UTS, UAS, dan Tugas ke dalam form yang dis
 Proyek ini dibangun dengan HTML sebagai antarmuka pengguna, CSS untuk styling dasar, yang digunakan untuk mengimplementasikan logika *Decision Tree*.
 
 ---
-![Alt](https://github.com/MadhuriLailatul/AI/blob/e4dd097a23f102b173758b6bc5d645af0b233f46/Picture.png)
 
 ### 👩‍💻 Identitas 
 
