@@ -9,6 +9,7 @@ Pengguna hanya perlu memasukkan nilai UTS, UAS, dan Tugas ke dalam form yang dis
 Proyek ini dibangun dengan HTML sebagai antarmuka pengguna, CSS untuk styling dasar, yang digunakan untuk mengimplementasikan logika *Decision Tree*.
 
 ---
+![Alt](https://github.com/MadhuriLailatul/AI/blob/e4dd097a23f102b173758b6bc5d645af0b233f46/Picture.png)
 
 ### 👩‍💻 Identitas 
 
